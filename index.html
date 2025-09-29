@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominators - Current Timetable</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        /* Style for differentiating session types */
+        .session-lecture {
+            background-color: rgba(75, 85, 99, 0.3);
+        }
+
+        /* gray-700/30 */
+        .session-tutorial {
+            background-color: rgba(59, 130, 246, 0.2);
+        }
+
+        /* blue-500/20 */
+        .session-practical {
+            background-color: rgba(22, 163, 74, 0.2);
+        }
+
+        /* green-600/20 */
+        .session-break {
+            background-color: rgba(124, 58, 237, 0.2);
+        }
+
+        /* violet-600/20 */
+        .session-free {
+            color: #6b7280;
+        }
+
+        /* gray-500 */
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800/50 backdrop-blur-sm shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-bold text-2xl text-indigo-400">Dominators</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html"
+                            class="text-gray-300 bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-disabled="true">Demo1</a>
+                        <a href="demo2.html"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Demo2</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <!-- Mobile menu button -->
+                    <button type="button"
+                        class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                        id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+               <a href="index.html"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-disabled="true">Demo1</a>
+                        <a href="demo2.html"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Demo2</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+
+        <!doctype html>
+        </span>
+        </div>
+        </header>
+
+
+        <main class="mt-6">
+
+            <div class="text-gray-300 text-left bg-gray-900/50 p-6 rounded-lg border border-gray-700/50">
+                <h1 class="text-2xl font-bold mb-6 text-indigo-300">Prompt Given</h1>
+                <p class="text-2xl md:text-base leading-relaxed">Create the time table that aligns with the NEP2020
+                    guidelines, you are given with below resources.</p>
+
+                <div class="mt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <a href="https://drive.google.com/file/d/1jlSCANh_bMG96kD0qMBw6l9cBDpIUj37/view?usp=sharing"
+                        class="inline-flex items-center gap-2 text-sm md:text-base font-medium text-sky-300 hover:text-sky-200 underline decoration-sky-500/40"
+                        target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h6m0 0v6m0-6L10 20" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21H3V3h9" />
+                        </svg>
+                        Click here to see formatted attachments
+                    </a>
+
+
+
+                </div>
+
+
+                <ul class="mt-4 space-y-2 text-gray-300 text-1xl">
+                    <li>• No free slots at starting of the day.</li>
+                    <li>• All lab should be continuous block of time, no break between that time </li>
+                    <li>• College working time are Mon to Saturday, 11-6 and 2 breaks (1 to 1:45 and 3:45 to 4:00) </li>
+                    <li>• Dont fill more students then capacity provided in attachments. </li>
+                    <li>• As in attachment Coursewise workload are fixed. </li>
+                </ul>
+
+
+            </div>
+
+
+            <br>
+            <br>
+           <div class=" mb-12">
+            <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">Results</h1>
+            <p class="text-gray-400 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                View the generated schedules for all active semesters.
+            </p>
+        </div>
+
+            <div class="space-y-16">
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <h2 class="text-3xl font-bold mb-6 text-indigo-300">Batch A</h2>
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3"></th>
+                                <th scope="col" class="px-6 py-3 text-center">Time</th>
+                                <th scope="col" class="px-6 py-3 text-center">Monday</th>
+                                <th scope="col" class="px-6 py-3 text-center">Tuesday</th>
+                                <th scope="col" class="px-6 py-3 text-center">Wednesday</th>
+                                <th scope="col" class="px-6 py-3 text-center">Thursday</th>
+                                <th scope="col" class="px-6 py-3 text-center">Friday</th>
+                                <th scope="col" class="px-6 py-3 text-center">Saturday</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">0</th>
+                                <td class="px-6 py-4 text-center align-top">11:00-12:00</td>
+                                <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lab)<br />Prof.
+                                    Sharma<br />CL-2</td>
+                                <td class="px-6 py-4 text-center align-top">SE-201 - Web Dev (Lab)<br />Prof.
+                                    Sharma<br />CL-4</td>
+                                <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lab)<br />Dr.
+                                    Mehta<br />CL-1</td>
+                                <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lab)<br />Prof.
+                                    Reddy<br />CL-3</td>
+                                <td class="px-6 py-4 text-center align-top">AE-201 - Prof. Comm. (Lab)<br />Ms.
+                                    Das<br />LL-1</td>
+                                <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lab)<br />Prof.
+                                    Kapoor<br />CL-7
+                                </td>
+                            </tr>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">1</th>
+                                <td class="px-6 py-4 text-center align-top">12:00-13:00</td>
+                                <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lab)<br />Prof.
+                                    Sharma<br />CL-2</td>
+                                <td class="px-6 py-4 text-center align-top">SE-201 - Web Dev (Lab)<br />Prof.
+                                    Sharma<br />CL-4</td>
+                                <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lab)<br />Dr.
+                                    Mehta<br />CL-1</td>
+                                <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lab)<br />Prof.
+                                    Reddy<br />CL-3</td>
+                                <td class="px-6 py-4 text-center align-top">AE-201 - Prof. Comm. (Lab)<br />Ms.
+                                    Das<br />LL-1</td>
+                                <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lab)<br />Prof.
+                                    Kapoor<br />CL-7
+                                </td>
+                            </tr>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">2</th>
+                                <td
+                                    class="px-6 py-4 text-center align-middle font-semibold text-green-600 dark:text-green-500">
+                                    13:00-13:45</td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">LUNCH</td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">BREAK</td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                            </tr>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">3</th>
+                                <td class="px-6 py-4 text-center align-top">13:45-14:45</td>
+                                <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lec)
+                                    (ALL)<br />Dr.
+                                    Verma<br />LH-101</td>
+                                <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lec)
+                                    (ALL)<br />Mr.
+                                    Nair<br />LH-102</td>
+                                <td class="px-6 py-4 text-center align-top">DA-202 - Statistical Methods (Lec)
+                                    (ALL)<br />Dr. Rathod<br />LH-101</td>
+                                <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lec) (ALL)<br />Dr.
+                                    Mehta<br />LH-101</td>
+                                <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lec) (ALL)<br />Prof.
+                                    Kapoor<br />LH-201</td>
+                                <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lec) (ALL)<br />Prof.
+                                    Kapoor<br />LH-102</td>
+                            </tr>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">4</th>
+                                <td class="px-6 py-4 text-center align-top">14:45-15:45</td>
+                                <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lec)
+                                    (ALL)<br />Dr.
+                                    Verma<br />LH-201</td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">---</td>
+                                <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lec)
+                                    (ALL)<br />Prof.
+                                    Sharma<br />LH-201</td>
+                                <td class="px-6 py-4 text-center align-top">DA-202 - Statistical Methods (Lec)
+                                    (ALL)<br />Dr. Rathod<br />LH-201</td>
+                                <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lec) (ALL)<br />Dr.
+                                    Mehta<br />LH-201</td>
+                                <td class="px-6 py-4 text-center align-top">AE-201 - Prof. Comm. (Lec) (ALL)<br />Prof.
+                                    Petrova<br />LH-101</td>
+                            </tr>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">5</th>
+                                <td
+                                    class="px-6 py-4 text-center align-middle font-semibold text-green-600 dark:text-green-500">
+                                    15:45-16:00</td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">TEA</td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">BREAK</td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                            </tr>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">6</th>
+                                <td class="px-6 py-4 text-center align-top">16:00-17:00</td>
+                                <td class="px-6 py-4 text-center align-top">MD-201 - Psychology (Lec)<br />Dr.
+                                    Kumar<br />LH-101</td>
+                                <td class="px-6 py-4 text-center align-top">MD-201 - Psychology (Lec)<br />Dr.
+                                    Kumar<br />LH-101</td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">---</td>
+                                <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lec) (ALL)<br />Dr.
+                                    Rathod<br />LH-101</td>
+                                <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lec) (ALL)<br />Dr.
+                                    Rathod<br />LH-101</td>
+                                <td class="px-6 py-4 text-center align-top">VA-201 - Environ. Science (Lec)
+                                    (ALL)<br />Dr.
+                                    Patel<br />LH-201</td>
+                            </tr>
+                            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">7</th>
+                                <td class="px-6 py-4 text-center align-top">17:00-18:00</td>
+                                <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lec) (ALL)<br />Prof.
+                                    Kapoor<br />LH-102</td>
+                                <td class="px-6 py-4 text-center align-top">VA-201 - Environ. Science (Lec)
+                                    (ALL)<br />Dr.
+                                    Gupta<br />LH-101</td>
+                                <td class="px-6 py-4 text-center align-top">SE-201 - Web Dev (Lec)<br />Prof.
+                                    Iyer<br />LH-102</td>
+                                <td class="px-6 py-4 text-center align-top">MD-201 - Psychology (Lec)<br />Dr.
+                                    Kumar<br />LH-201</td>
+                                <td class="px-6 py-4 text-center align-top">DA-202 - Statistical Methods (Lec)
+                                    (ALL)<br />Dr. Rathod<br />LH-102</td>
+                                <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lec) (ALL)<br />Dr.
+                                    Joshi<br />LH-201</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br>
+            <div class="bg-gray-800/60 p-6 md:p-8 rounded-2xl shadow-2xl border border-gray-700">
+                <h2 class="text-3xl font-bold mb-6 text-indigo-300">Batch B</h2>
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                            <thead
+                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3"></th>
+                                    <th scope="col" class="px-6 py-3 text-center">Time</th>
+                                    <th scope="col" class="px-6 py-3 text-center">Monday</th>
+                                    <th scope="col" class="px-6 py-3 text-center">Tuesday</th>
+                                    <th scope="col" class="px-6 py-3 text-center">Wednesday</th>
+                                    <th scope="col" class="px-6 py-3 text-center">Thursday</th>
+                                    <th scope="col" class="px-6 py-3 text-center">Friday</th>
+                                    <th scope="col" class="px-6 py-3 text-center">Saturday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">0
+                                    </th>
+                                    <td class="px-6 py-4 text-center align-top">11:00-12:00</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lab)<br />Mr.
+                                        Nair<br />CL-1</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lab)<br />Dr.
+                                        Verma<br />CL-9
+                                    </td>
+                                    <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lab)<br />Prof.
+                                        Sharma<br />CL-2</td>
+                                    <td class="px-6 py-4 text-center align-top">SE-201 - Web Dev (Lab)<br />Prof.
+                                        Iyer<br />CL-4</td>
+                                    <td class="px-6 py-4 text-center align-top">AE-201 - Prof. Comm. (Lab)<br />Ms.
+                                        Das<br />LL-1</td>
+                                    <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lab)<br />Dr.
+                                        Rathod<br />CL-10</td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">1
+                                    </th>
+                                    <td class="px-6 py-4 text-center align-top">12:00-13:00</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lab)<br />Mr.
+                                        Nair<br />CL-1</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lab)<br />Dr.
+                                        Verma<br />CL-9
+                                    </td>
+                                    <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lab)<br />Prof.
+                                        Sharma<br />CL-2</td>
+                                    <td class="px-6 py-4 text-center align-top">SE-201 - Web Dev (Lab)<br />Prof.
+                                        Iyer<br />CL-4</td>
+                                    <td class="px-6 py-4 text-center align-top">AE-201 - Prof. Comm. (Lab)<br />Ms.
+                                        Das<br />LL-1</td>
+                                    <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lab)<br />Dr.
+                                        Rathod<br />CL-10</td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">2
+                                    </th>
+                                    <td
+                                        class="px-6 py-4 text-center align-middle font-semibold text-green-600 dark:text-green-500">
+                                        13:00-13:45</td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">LUNCH</td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">BREAK</td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">3
+                                    </th>
+                                    <td class="px-6 py-4 text-center align-top">13:45-14:45</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lec)
+                                        (ALL)<br />Dr. Verma<br />LH-101</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lec)
+                                        (ALL)<br />Mr. Nair<br />LH-102</td>
+                                    <td class="px-6 py-4 text-center align-top">DA-202 - Statistical Methods (Lec)
+                                        (ALL)<br />Dr. Rathod<br />LH-101</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lec)
+                                        (ALL)<br />Dr.
+                                        Mehta<br />LH-101</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lec) (ALL)<br />Prof.
+                                        Kapoor<br />LH-201</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lec) (ALL)<br />Prof.
+                                        Kapoor<br />LH-102</td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">4
+                                    </th>
+                                    <td class="px-6 py-4 text-center align-top">14:45-15:45</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lec)
+                                        (ALL)<br />Dr. Verma<br />LH-201</td>
+                                    <td class="px-6 py-4 text-center align-top">MD-202 - Economics (Lec)<br />Dr.
+                                        Desai<br />LH-102</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lec)
+                                        (ALL)<br />Prof. Sharma<br />LH-201</td>
+                                    <td class="px-6 py-4 text-center align-top">DA-202 - Statistical Methods (Lec)
+                                        (ALL)<br />Dr. Rathod<br />LH-201</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lec)
+                                        (ALL)<br />Dr.
+                                        Mehta<br />LH-201</td>
+                                    <td class="px-6 py-4 text-center align-top">AE-201 - Prof. Comm. (Lec)
+                                        (ALL)<br />Prof.
+                                        Petrova<br />LH-101</td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">5
+                                    </th>
+                                    <td
+                                        class="px-6 py-4 text-center align-middle font-semibold text-green-600 dark:text-green-500">
+                                        15:45-16:00</td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">TEA</td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">BREAK</td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">6
+                                    </th>
+                                    <td class="px-6 py-4 text-center align-top">16:00-17:00</td>
+                                    <td class="px-6 py-4 text-center align-top">MD-202 - Economics (Lec)<br />Dr.
+                                        Desai<br />LH-102</td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">---</td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">---</td>
+                                    <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lec)
+                                        (ALL)<br />Dr.
+                                        Rathod<br />LH-101</td>
+                                    <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lec)
+                                        (ALL)<br />Dr.
+                                        Rathod<br />LH-101</td>
+                                    <td class="px-6 py-4 text-center align-top">VA-201 - Environ. Science (Lec)
+                                        (ALL)<br />Dr. Patel<br />LH-201</td>
+                                </tr>
+                                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">7
+                                    </th>
+                                    <td class="px-6 py-4 text-center align-top">17:00-18:00</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lec) (ALL)<br />Prof.
+                                        Kapoor<br />LH-102</td>
+                                    <td class="px-6 py-4 text-center align-top">VA-201 - Environ. Science (Lec)
+                                        (ALL)<br />Dr. Gupta<br />LH-101</td>
+                                    <td class="px-6 py-4 text-center align-top">SE-201 - Web Dev (Lec)<br />Prof.
+                                        Iyer<br />LH-102</td>
+                                    <td class="px-6 py-4 text-center align-top">MD-202 - Economics (Lec)<br />Dr.
+                                        Desai<br />LH-101</td>
+                                    <td class="px-6 py-4 text-center align-top">DA-202 - Statistical Methods (Lec)
+                                        (ALL)<br />Dr. Rathod<br />LH-102</td>
+                                    <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lec)
+                                        (ALL)<br />Dr.
+                                        Joshi<br />LH-201</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="bg-gray-800/60 p-6 md:p-8 rounded-2xl shadow-2xl border border-gray-700">
+                <h2 class="text-3xl font-bold mb-6 text-indigo-300">Batch C</h2>
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3"></th>
+                                <th scope="col" class="px-6 py-3 text-center">Time</th>
+                                <th scope="col" class="px-6 py-3 text-center">Monday</th>
+                                <th scope="col" class="px-6 py-3 text-center">Tuesday</th>
+                                <th scope="col" class="px-6 py-3 text-center">Wednesday</th>
+                                <th scope="col" class="px-6 py-3 text-center">Thursday</th>
+                                <th scope="col" class="px-6 py-3 text-center">Friday</th>
+                                <th scope="col" class="px-6 py-3 text-center">Saturday</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">0</th>
+                                <td class="px-6 py-4 text-center align-top">11:00-12:00</td>
+                                <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lab)<br />Dr.
+                                    Mehta<br />CL-5</td>
+                                <td class="px-6 py-4 text-center align-top">SE-202 - UI/UX Design (Lab)<br />Ms.
+                                    Singh<br />CL-8</td>
+                                <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lab)<br />Prof.
+                                    Kapoor<br />CL-7
+                                </td>
+                                <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lab)<br />Dr.
+                                    Rathod<br />CL-10</td>
+                                <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lab)<br />Prof.
+                                    Sharma<br />CL-2</td>
+                                <td class="px-6 py-4 text-center align-top">SE-202 - UI/UX Design (Lec)<br />Prof.
+                                    Iyer<br />LH-102</td>
+                            </tr>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">1</th>
+                                <td class="px-6 py-4 text-center align-top">12:00-13:00</td>
+                                <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lab)<br />Dr.
+                                    Mehta<br />CL-5</td>
+                                <td class="px-6 py-4 text-center align-top">SE-202 - UI/UX Design (Lab)<br />Ms.
+                                    Singh<br />CL-8</td>
+                                <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lab)<br />Prof.
+                                    Kapoor<br />CL-7
+                                </td>
+                                <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lab)<br />Dr.
+                                    Rathod<br />CL-10</td>
+                                <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lab)<br />Prof.
+                                    Sharma<br />CL-2</td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">---</td>
+                            </tr>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">2</th>
+                                <td
+                                    class="px-6 py-4 text-center align-middle font-semibold text-green-600 dark:text-green-500">
+                                    13:00-13:45</td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">LUNCH</td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">BREAK</td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                            </tr>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">3</th>
+                                <td class="px-6 py-4 text-center align-top">13:45-14:45</td>
+                                <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lec)
+                                    (ALL)<br />Dr.
+                                    Verma<br />LH-101</td>
+                                <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lec)
+                                    (ALL)<br />Mr.
+                                    Nair<br />LH-102</td>
+                                <td class="px-6 py-4 text-center align-top">DA-202 - Statistical Methods (Lec)
+                                    (ALL)<br />Dr. Rathod<br />LH-101</td>
+                                <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lec) (ALL)<br />Dr.
+                                    Mehta<br />LH-101</td>
+                                <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lec) (ALL)<br />Prof.
+                                    Kapoor<br />LH-201</td>
+                                <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lec) (ALL)<br />Prof.
+                                    Kapoor<br />LH-102</td>
+                            </tr>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">4</th>
+                                <td class="px-6 py-4 text-center align-top">14:45-15:45</td>
+                                <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lec)
+                                    (ALL)<br />Dr.
+                                    Verma<br />LH-201</td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">---</td>
+                                <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lec)
+                                    (ALL)<br />Prof.
+                                    Sharma<br />LH-201</td>
+                                <td class="px-6 py-4 text-center align-top">DA-202 - Statistical Methods (Lec)
+                                    (ALL)<br />Dr. Rathod<br />LH-201</td>
+                                <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lec) (ALL)<br />Dr.
+                                    Mehta<br />LH-201</td>
+                                <td class="px-6 py-4 text-center align-top">AE-201 - Prof. Comm. (Lec) (ALL)<br />Prof.
+                                    Petrova<br />LH-101</td>
+                            </tr>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">5</th>
+                                <td
+                                    class="px-6 py-4 text-center align-middle font-semibold text-green-600 dark:text-green-500">
+                                    15:45-16:00</td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">TEA</td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">BREAK</td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                            </tr>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">6</th>
+                                <td class="px-6 py-4 text-center align-top">16:00-17:00</td>
+                                <td class="px-6 py-4 text-center align-top">MD-201 - Psychology (Lec)<br />Dr.
+                                    Kumar<br />LH-101</td>
+                                <td class="px-6 py-4 text-center align-top">MD-201 - Psychology (Lec)<br />Dr.
+                                    Kumar<br />LH-101</td>
+                                <td class="px-6 py-4 text-center align-top">AE-201 - Prof. Comm. (Lab)<br />Ms.
+                                    Das<br />LL-1</td>
+                                <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lec) (ALL)<br />Dr.
+                                    Rathod<br />LH-101</td>
+                                <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lec) (ALL)<br />Dr.
+                                    Rathod<br />LH-101</td>
+                                <td class="px-6 py-4 text-center align-top">VA-201 - Environ. Science (Lec)
+                                    (ALL)<br />Dr.
+                                    Patel<br />LH-201</td>
+                            </tr>
+                            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">7</th>
+                                <td class="px-6 py-4 text-center align-top">17:00-18:00</td>
+                                <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lec) (ALL)<br />Prof.
+                                    Kapoor<br />LH-102</td>
+                                <td class="px-6 py-4 text-center align-top">VA-201 - Environ. Science (Lec)
+                                    (ALL)<br />Dr.
+                                    Gupta<br />LH-101</td>
+                                <td class="px-6 py-4 text-center align-top">AE-201 - Prof. Comm. (Lab)<br />Ms.
+                                    Das<br />LL-1</td>
+                                <td class="px-6 py-4 text-center align-top">MD-201 - Psychology (Lec)<br />Dr.
+                                    Kumar<br />LH-201</td>
+                                <td class="px-6 py-4 text-center align-top">DA-202 - Statistical Methods (Lec)
+                                    (ALL)<br />Dr. Rathod<br />LH-102</td>
+                                <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lec) (ALL)<br />Dr.
+                                    Joshi<br />LH-201</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="bg-gray-800/60 p-6 md:p-8 rounded-2xl shadow-2xl border border-gray-700">
+                <h2 class="text-3xl font-bold mb-6 text-indigo-300">Batch D</h2>
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                            <thead
+                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3"></th>
+                                    <th scope="col" class="px-6 py-3 text-center">Time</th>
+                                    <th scope="col" class="px-6 py-3 text-center">Monday</th>
+                                    <th scope="col" class="px-6 py-3 text-center">Tuesday</th>
+                                    <th scope="col" class="px-6 py-3 text-center">Wednesday</th>
+                                    <th scope="col" class="px-6 py-3 text-center">Thursday</th>
+                                    <th scope="col" class="px-6 py-3 text-center">Friday</th>
+                                    <th scope="col" class="px-6 py-3 text-center">Saturday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">0
+                                    </th>
+                                    <td class="px-6 py-4 text-center align-top">11:00-12:00</td>
+                                    <td class="px-6 py-4 text-center align-top">SE-202 - UI/UX Design (Lab)<br />Ms.
+                                        Singh<br />CL-4</td>
+                                    <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lab)<br />Prof.
+                                        Reddy<br />CL-7</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lab)<br />Dr.
+                                        Verma<br />CL-5</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lab)<br />Dr.
+                                        Mehta<br />CL-2</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lab)<br />Dr.
+                                        Verma<br />CL-3
+                                    </td>
+                                    <td class="px-6 py-4 text-center align-top">SE-202 - UI/UX Design (Lec)<br />Prof.
+                                        Iyer<br />LH-102</td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">1
+                                    </th>
+                                    <td class="px-6 py-4 text-center align-top">12:00-13:00</td>
+                                    <td class="px-6 py-4 text-center align-top">SE-202 - UI/UX Design (Lab)<br />Ms.
+                                        Singh<br />CL-4</td>
+                                    <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lab)<br />Prof.
+                                        Reddy<br />CL-7</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lab)<br />Dr.
+                                        Verma<br />CL-5</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lab)<br />Dr.
+                                        Mehta<br />CL-2</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lab)<br />Dr.
+                                        Verma<br />CL-3
+                                    </td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">---</td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">2
+                                    </th>
+                                    <td
+                                        class="px-6 py-4 text-center align-middle font-semibold text-green-600 dark:text-green-500">
+                                        13:00-13:45</td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">LUNCH</td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">BREAK</td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">3
+                                    </th>
+                                    <td class="px-6 py-4 text-center align-top">13:45-14:45</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lec)
+                                        (ALL)<br />Dr. Verma<br />LH-101</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lec)
+                                        (ALL)<br />Mr. Nair<br />LH-102</td>
+                                    <td class="px-6 py-4 text-center align-top">DA-202 - Statistical Methods (Lec)
+                                        (ALL)<br />Dr. Rathod<br />LH-101</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lec)
+                                        (ALL)<br />Dr.
+                                        Mehta<br />LH-101</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lec) (ALL)<br />Prof.
+                                        Kapoor<br />LH-201</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lec) (ALL)<br />Prof.
+                                        Kapoor<br />LH-102</td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">4
+                                    </th>
+                                    <td class="px-6 py-4 text-center align-top">14:45-15:45</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-201 - Data Structures (Lec)
+                                        (ALL)<br />Dr. Verma<br />LH-201</td>
+                                    <td class="px-6 py-4 text-center align-top">MD-202 - Economics (Lec)<br />Dr.
+                                        Desai<br />LH-102</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lec)
+                                        (ALL)<br />Prof. Sharma<br />LH-201</td>
+                                    <td class="px-6 py-4 text-center align-top">DA-202 - Statistical Methods (Lec)
+                                        (ALL)<br />Dr. Rathod<br />LH-201</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-202 - OOP with Java (Lec)
+                                        (ALL)<br />Dr.
+                                        Mehta<br />LH-201</td>
+                                    <td class="px-6 py-4 text-center align-top">AE-201 - Prof. Comm. (Lec)
+                                        (ALL)<br />Prof.
+                                        Petrova<br />LH-101</td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">5
+                                    </th>
+                                    <td
+                                        class="px-6 py-4 text-center align-middle font-semibold text-green-600 dark:text-green-500">
+                                        15:45-16:00</td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">TEA</td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">BREAK</td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400"></td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">6
+                                    </th>
+                                    <td class="px-6 py-4 text-center align-top">16:00-17:00</td>
+                                    <td class="px-6 py-4 text-center align-top">MD-202 - Economics (Lec)<br />Dr.
+                                        Desai<br />LH-102</td>
+                                    <td class="px-6 py-4 text-center align-middle font-medium text-gray-400">---</td>
+                                    <td class="px-6 py-4 text-center align-top">AE-201 - Prof. Comm. (Lab)<br />Ms.
+                                        Das<br />LL-1</td>
+                                    <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lec)
+                                        (ALL)<br />Dr.
+                                        Rathod<br />LH-101</td>
+                                    <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lec)
+                                        (ALL)<br />Dr.
+                                        Rathod<br />LH-101</td>
+                                    <td class="px-6 py-4 text-center align-top">VA-201 - Environ. Science (Lec)
+                                        (ALL)<br />Dr. Patel<br />LH-201</td>
+                                </tr>
+                                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">7
+                                    </th>
+                                    <td class="px-6 py-4 text-center align-top">17:00-18:00</td>
+                                    <td class="px-6 py-4 text-center align-top">CS-203 - DBMS (Lec) (ALL)<br />Prof.
+                                        Kapoor<br />LH-102</td>
+                                    <td class="px-6 py-4 text-center align-top">VA-201 - Environ. Science (Lec)
+                                        (ALL)<br />Dr. Gupta<br />LH-101</td>
+                                    <td class="px-6 py-4 text-center align-top">AE-201 - Prof. Comm. (Lab)<br />Ms.
+                                        Das<br />LL-1</td>
+                                    <td class="px-6 py-4 text-center align-top">MD-202 - Economics (Lec)<br />Dr.
+                                        Desai<br />LH-101</td>
+                                    <td class="px-6 py-4 text-center align-top">DA-202 - Statistical Methods (Lec)
+                                        (ALL)<br />Dr. Rathod<br />LH-102</td>
+                                    <td class="px-6 py-4 text-center align-top">DA-201 - Data Science (Lec)
+                                        (ALL)<br />Dr.
+                                        Joshi<br />LH-201</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+        </main>
+
+        <!-- Sticky Modify Input Box -->
+        <div class="fixed bottom-4 md:bottom-8 inset-x-0 flex justify-center z-50 px-4">
+            <div class="relative w-full max-w-2xl">
+                <input type="text" placeholder="Describe Changes you wanna make, believe us we prove it."
+                    class="w-full pl-6 pr-16 py-4 text-base md:text-lg text-white bg-gray-700/80 backdrop-blur-sm border border-gray-600/50 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-300 ease-in-out placeholder-gray-400">
+                <button type="submit" class="absolute inset-y-0 right-0 flex items-center pr-5 group"
+                    aria-label="Submit modification">
+                    <svg class="w-6 h-6 text-indigo-400 group-hover:text-indigo-300 group-hover:scale-110 transition-all"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path
+                            d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <script>
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const svgs = mobileMenuButton.querySelectorAll('svg');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                svgs.forEach(svg => svg.classList.toggle('hidden'));
+            });
+        </script>
+
+</body>
+
+</html>

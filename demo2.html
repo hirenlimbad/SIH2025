@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominators - Current Timetable</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        /* Style for differentiating session types */
+        .session-lecture {
+            background-color: rgba(75, 85, 99, 0.3);
+        }
+
+        /* gray-700/30 */
+        .session-tutorial {
+            background-color: rgba(59, 130, 246, 0.2);
+        }
+
+        /* blue-500/20 */
+        .session-practical {
+            background-color: rgba(22, 163, 74, 0.2);
+        }
+
+        /* green-600/20 */
+        .session-break {
+            background-color: rgba(124, 58, 237, 0.2);
+        }
+
+        /* violet-600/20 */
+        .session-free {
+            color: #6b7280;
+        }
+
+        /* gray-500 */
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800/50 backdrop-blur-sm shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-bold text-2xl text-indigo-400">Dominators</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                       <a href="index.html"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Demo1</a>
+                        <a href="demo2.html"
+                            class="text-gray-300 bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-disabled="true">Demo2</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <!-- Mobile menu button -->
+                    <button type="button"
+                        class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                        id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Demo1</a>
+                        <a href="demo2.html"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-disabled="true">Demo2</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+
+        <!-- Prompt Given Section -->
+        <div class="bg-gray-800/60 p-6 md:p-8 rounded-2xl shadow-2xl border border-gray-700 mb-16">
+            <h2 class="text-3xl font-bold mb-6 text-indigo-300">Prompt Given</h2>
+            <div class="text-gray-300 text-left bg-gray-900/50 p-6 rounded-lg">
+                <pre class="whitespace-pre-wrap font-mono text-sm md:text-base">
+ you have to write the python code using google OR tool to generate the time table and store into the pandas dataframes, here are some soft and hard constraights
+ college time : 11 to 6, 1 hour for lecture, 2 hour for labs and workshop, 1 to 1:45 break, 3:45 to 4 break. 
+ hard constraights
+ no collision should be happend in between faculty, student and location.
+ no consecutive lecture or lab for the same subjects.
+ soft constraights
+ try to avoid maths lecture after 4PM.
+ avoid free lectures in starting of the day.
+
+</pre>
+<a href="https://drive.google.com/file/d/1eKEALg57afCS5BxL6aIjeZZRIwiGLyiF/view?usp=sharing"
+       class="inline-flex items-center gap-2 text-sm md:text-base font-medium text-sky-300 hover:text-sky-200 underline decoration-sky-500/40"
+       target="_blank" rel="noopener noreferrer">
+       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="1.5">
+           <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h6m0 0v6m0-6L10 20" />
+           <path stroke-linecap="round" stroke-linejoin="round" d="M21 21H3V3h9" />
+       </svg>
+       Click here to see formatted attachments
+   </a>
+   </div>
+            </div>
+        </div>
+
+        <div class=" mb-12">
+            <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">Results</h1>
+            <p class="text-gray-400 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                View the generated schedules for all active semesters.
+            </p>
+        </div>
+
+        <div class="space-y-16">
+            <!-- Semester III Timetable -->
+            <div class="bg-gray-800/60 p-6 md:p-8 rounded-2xl shadow-2xl border border-gray-700">
+                <h2 class="text-3xl font-bold mb-6 text-indigo-300">Semester III</h2>
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3"></th>
+                                <th scope="col" class="px-6 py-3 text-center">Time Slot</th>
+                                <th scope="col" class="px-6 py-3 text-center">Monday</th>
+                                <th scope="col" class="px-6 py-3 text-center">Tuesday</th>
+                                <th scope="col" class="px-6 py-3 text-center">Wednesday</th>
+                                <th scope="col" class="px-6 py-3 text-center">Thursday</th>
+                                <th scope="col" class="px-6 py-3 text-center">Friday</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">0</th>
+                                <td class=" text-center">11:00-12:00</td>
+                                <td class="px-6 py-4 text-center">ETC | (NBM) | [LBS001] (LAB)</td>
+                                <td class="px-6 py-4 text-center">DBMS | (GSI) | [LBS001] (LAB)</td>
+                                <td class="px-6 py-4 text-center">IC | (BDS) | [CLS001]</td>
+                                <td class="px-6 py-4 text-center">DS | (AKS) | [LBS001] (LAB)</td>
+                                <td class="px-6 py-4 text-center">PAS | (RMK) | [CLS004]</td>
+                            </tr>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">1</th>
+                                <td class=" text-center">12:00-13:00</td>
+                                <td class="px-6 py-4 text-center">ETC | (NBM) | [LBS001] (LAB)</td>
+                                <td class="px-6 py-4 text-center">DBMS | (GSI) | [LBS001] (LAB)</td>
+                                <td class="px-6 py-4 text-center">DF | (SVP) | [CLS001]</td>
+                                <td class="px-6 py-4 text-center">DS | (AKS) | [LBS001] (LAB)</td>
+                                <td class="px-6 py-4 text-center">DBMS | (GSI) | [CLS004]</td>
+                            </tr>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">2</th>
+                                <td class=" text-center">13:30-14:30</td>
+                                <td class="px-6 py-4 text-center">DBMS | (GSI) | [CLS006]</td>
+                                <td class="px-6 py-4 text-center text-gray-400">---FREE---</td>
+                                <td class="px-6 py-4 text-center">DS | (AKS) | [LBS004] (LAB)</td>
+                                <td class="px-6 py-4 text-center">DBMS | (GSI) | [CLS005]</td>
+                                <td class="px-6 py-4 text-center">DS | (AKS) | [CLS004]</td>
+                            </tr>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">3</th>
+                                <td class=" text-center">14:30-15:30</td>
+                                <td class="px-6 py-4 text-center text-gray-400">---FREE---</td>
+                                <td class="px-6 py-4 text-center">DS | (AKS) | [CLS002]</td>
+                                <td class="px-6 py-4 text-center">DS | (AKS) | [LBS004] (LAB)</td>
+                                <td class="px-6 py-4 text-center">DF | (SVP) | [CLS005]</td>
+                                <td class="px-6 py-4 text-center">PAS | (RMK) | [CLS004]</td>
+                            </tr>
+                            <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">4</th>
+                                <td class=" text-center">15:45-16:45</td>
+                                <td class="px-6 py-4 text-center">PAS | (RMK) | [CLS006]</td>
+                                <td class="px-6 py-4 text-center">ETC | (NBM) | [CLS002]</td>
+                                <td class="px-6 py-4 text-center text-gray-400">---FREE---</td>
+                                <td class="px-6 py-4 text-center">IC | (BDS) | [CLS005]</td>
+                                <td class="px-6 py-4 text-center">DF | (SVP) | [LBS002] (LAB)</td>
+                            </tr>
+                            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">5</th>
+                                <td class="px-6 py-4 text-center">16:45-17:45</td>
+                                <td class="px-6 py-4 text-center">ETC | (NBM) | [CLS006]</td>
+                                <td class="px-6 py-4 text-center">DS | (AKS) | [CLS002]</td>
+                                <td class="px-6 py-4 text-center">DBMS | (GSI) | [CLS001]</td>
+                                <td class="px-6 py-4 text-center">DF | (SVP) | [CLS005]</td>
+                                <td class="px-6 py-4 text-center">DF | (SVP) | [LBS002] (LAB)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Semester V Timetable -->
+        <br>
+        <div class="bg-gray-800/60 p-6 md:p-8 rounded-2xl shadow-2xl border border-gray-700">
+            <h2 class="text-3xl font-bold mb-6 text-indigo-300">Semester V</h2>
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3"></th>
+                            <th scope="col" class="px-3 py-3 text-center">Time Slot</th>
+                            <th scope="col" class="px-6 py-3 text-center">Monday</th>
+                            <th scope="col" class="px-6 py-3 text-center">Tuesday</th>
+                            <th scope="col" class="px-6 py-3 text-center">Wednesday</th>
+                            <th scope="col" class="px-6 py-3 text-center">Thursday</th>
+                            <th scope="col" class="px-6 py-3 text-center">Friday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">0</th>
+                            <td class=" text-center">11:00-12:00</td>
+                            <td class="px-6 py-4 text-center">ADA | (AKS) | [CLS003]</td>
+                            <td class="px-6 py-4 text-center">PE | (NBM) | [CLS005]</td>
+                            <td class="px-6 py-4 text-center">PDS | (SVP) | [CLS006]</td>
+                            <td class="px-6 py-4 text-center">SE | (GSI) | [CLS004]</td>
+                            <td class="px-6 py-4 text-center">ADA | (AKS) | [CLS006]</td>
+                        </tr>
+                        <tr
+                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">1</th>
+                            <td class="text-center">12:00-13:00</td>
+                            <td class="px-6 py-4 text-center">CN | (VPD) | [CLS003]</td>
+                            <td class="px-6 py-4 text-center">ADA | (AKS) | [CLS005]</td>
+                            <td class="px-6 py-4 text-center">ADA | (AKS) | [CLS006]</td>
+                            <td class="px-6 py-4 text-center text-gray-400">---FREE---</td>
+                            <td class="px-6 py-4 text-center text-gray-400">---FREE---</td>
+                        </tr>
+                        <tr
+                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">2</th>
+                            <td class=" text-center">13:30-14:30</td>
+                            <td class="px-6 py-4 text-center">PE | (NBM) | [CLS003]</td>
+                            <td class="px-6 py-4 text-center">CN | (VPD) | [CLS005]</td>
+                            <td class="px-6 py-4 text-center">CPDP | (HRT) | [CLS006]</td>
+                            <td class="px-6 py-4 text-center text-gray-400">---FREE---</td>
+                            <td class="px-6 py-4 text-center">CN | (VPD) | [LBS002] (LAB)</td>
+                        </tr>
+                        <tr
+                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">3</th>
+                            <td class=" text-center">14:30-15:30</td>
+                            <td class="px-6 py-4 text-center">PDS | (SVP) | [CLS003]</td>
+                            <td class="px-6 py-4 text-center">CPDP | (HRT) | [CLS005]</td>
+                            <td class="px-6 py-4 text-center">SE | (GSI) | [CLS006]</td>
+                            <td class="px-6 py-4 text-center">CN | (VPD) | [CLS004]</td>
+                            <td class="px-6 py-4 text-center">CN | (VPD) | [LBS002] (LAB)</td>
+                        </tr>
+                        <tr
+                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">4</th>
+                            <td class=" text-center">15:45-16:45</td>
+                            <td class="px-6 py-4 text-center">SE | (GSI) | [LBS004] (LAB)</td>
+                            <td class="px-6 py-4 text-center">CN | (VPD) | [CLS005]</td>
+                            <td class="px-6 py-4 text-center">PDS | (SVP) | [LBS004] (LAB)</td>
+                            <td class="px-6 py-4 text-center">ADA | (AKS) | [LBS004] (LAB)</td>
+                            <td class="px-6 py-4 text-center text-gray-400">---FREE---</td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">5</th>
+                            <td class=" text-center">16:45-17:45</td>
+                            <td class="px-6 py-4 text-center">SE | (GSI) | [LBS004] (LAB)</td>
+                            <td class="px-6 py-4 text-center">PE | (NBM) | [CLS005]</td>
+                            <td class="px-6 py-4 text-center">PDS | (SVP) | [LBS004] (LAB)</td>
+                            <td class="px-6 py-4 text-center">ADA | (AKS) | [LBS004] (LAB)</td>
+                            <td class="px-6 py-4 text-center">SE | (GSI) | [CLS006]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+
+    </main>
+
+    <!-- Sticky Modify Input Box -->
+    <div class="fixed bottom-4 md:bottom-8 inset-x-0 flex justify-center z-50 px-4">
+        <div class="relative w-full max-w-2xl">
+            <input type="text" placeholder="Describe Changes you wanna make, belive us we prove it."
+                class="w-full pl-6 pr-16 py-4 text-base md:text-lg text-white bg-gray-700/80 backdrop-blur-sm border border-gray-600/50 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-300 ease-in-out placeholder-gray-400">
+            <button type="submit" class="absolute inset-y-0 right-0 flex items-center pr-5 group"
+                aria-label="Submit modification">
+                <svg class="w-6 h-6 text-indigo-400 group-hover:text-indigo-300 group-hover:scale-110 transition-all"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                        d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const svgs = mobileMenuButton.querySelectorAll('svg');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            svgs.forEach(svg => svg.classList.toggle('hidden'));
+        });
+    </script>
+
+</body>
+
+</html>
